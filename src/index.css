@@ -1,0 +1,12 @@
+body{
+    background-color: #30d6e5;
+}
+
+.pageTitle{
+    display: inline-block;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    color: rgb(125, 113, 249);
+
+}
