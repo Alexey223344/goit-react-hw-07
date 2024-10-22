@@ -20,4 +20,4 @@ export const selectUserFiltered = state => state.filters.filters.name;
 
 export const filtrationReducer = slice.reducer;
 
-export const { changeFilter } = slice.actions;
+export const { addFilter } = slice.actions;

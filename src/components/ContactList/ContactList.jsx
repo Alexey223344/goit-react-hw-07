@@ -9,14 +9,14 @@ import {
 import Loader from "../Loader/Loader";
 
 const ContactList = () => {
-  const searchUsers = useSelector(selectFilteredContacts);
-  const loader = useSelector(selectWaitLoadingUser);
+  const foundContacts = useSelector(selectFilteredContacts);
+  const isLoader = useSelector(selectWaitLoadingUser);
 
   return (
     <div>
-      {loader && <Loader />}
+      {isLoader && <Loader />}
       <ul className={s.list}>
-        {searchUsers.map((user) => (
+        {foundContacts.map((user) => (
           <li className={s.item} key={user.id}>
             <Contact user={user} />
           </li>
