@@ -9,7 +9,7 @@ const ContactForm = () => {
 
   const orderSchema = Yup.object({
     name: Yup.string()
-      .min(3, 'minimum of 3 letters')
+      .min(3, 'min of 3 letters')
       .max(50, 'max 50 letters')
       .required('Must be filled'),
     number: Yup.string()
