@@ -1,4 +1,4 @@
-.contactForm {
+.contacts {
   padding: 28px;
   margin: 0 auto;
   width: 400px;
@@ -16,7 +16,7 @@
   margin-bottom: 24px;
 }
 
-.formBtn {
+.btn {
   border: none;
   outline: none;
   color: #fff;
@@ -30,7 +30,7 @@
   border-radius: 30px;
 }
 
-.formBtn {
+.btn {
   padding: 10px 20px;
   margin: 0 auto;
   font-weight: bold;
@@ -43,13 +43,13 @@
   transition: box-shadow 0.3s ease;
 }
 
-.formBtn:hover,
-.formBtn:focus {
+.btn:hover,
+.btn:focus {
   background-color: rgb(140, 8, 241);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.contactForm label {
+.contacts label {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -58,11 +58,11 @@
   font-size: 20px;
 }
 
-.inputErr {
+.err_msg {
   color: red;
 }
 
-.formInput {
+.label_name {
   padding: 8px 20px;
   height: 32px;
   border-radius: 6px;
@@ -70,8 +70,8 @@
   transition: all 300ms ease;
 }
 
-.formInput:focus,
-.formInput:active {
+.label_name:focus,
+.label_name:active {
   border: 2px solid blue;
   outline: none;
 }

@@ -1,6 +1,6 @@
-import { createSelector, createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from './contactsOps';
-import { selectUserFiltered } from './filtersSlice';
+import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { addContact, deleteContact, fetchContacts } from "./contactsOps";
+import { selectUserFiltered } from "./filtersSlice";
 
 const initialState = {
   contacts: {
@@ -11,32 +11,22 @@ const initialState = {
 };
 
 const slise = createSlice({
-  name: 'contacts',
+  name: "contacts",
   initialState,
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.contacts.items = action.payload;
-      })
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.items.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.contacts.items = state.contacts.items.filter(
-          item => item.id !== action.payload
+          (item) => item.id !== action.payload
         );
       })
-      .addMatcher(
-        isAnyOf(
-          fetchContacts.pending,
-          addContact.pending,
-          deleteContact.pending
-        ),
-        state => {
-          state.contacts.loading = true;
-          state.contacts.error = null;
-        }
-      )
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.contacts.items = action.payload;
+      })
+
       .addMatcher(
         isAnyOf(
           fetchContacts.rejected,
@@ -48,13 +38,25 @@ const slise = createSlice({
           state.contacts.error = action.payload;
         }
       )
+
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.pending,
+          addContact.pending,
+          deleteContact.pending
+        ),
+        (state) => {
+          state.contacts.loading = true;
+          state.contacts.error = null;
+        }
+      )
       .addMatcher(
         isAnyOf(
           fetchContacts.fulfilled,
           addContact.fulfilled,
           deleteContact.fulfilled
         ),
-        state => {
+        (state) => {
           state.contacts.loading = false;
         }
       );
@@ -63,14 +65,14 @@ const slise = createSlice({
 
 export const contactReducer = slise.reducer;
 
-export const selectContactUser = state => state.contacts.contacts.items;
-export const selectWaitLoadingUser = state => state.contacts.contacts.loading;
-export const selectMessageError = state => state.contacts.contacts.error;
+export const selectContactUser = (state) => state.contacts.contacts.items;
+export const selectWaitLoadingUser = (state) => state.contacts.contacts.loading;
+export const selectMessageError = (state) => state.contacts.contacts.error;
 
 export const selectFilteredContacts = createSelector(
   [selectContactUser, selectUserFiltered],
   (contacts, filter) => {
-    return contacts.filter(contact =>
+    return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filter)
     );
   }

@@ -5,7 +5,7 @@ import { deleteContact } from '../../redux/contactsOps';
 const Contact = ({ user }) => {
   const dispatch = useDispatch();
 
-  const handleDeleteContactUser = () => {
+  const handleDelete = () => {
     dispatch(deleteContact(user.id));
   };
 
@@ -13,14 +13,14 @@ const Contact = ({ user }) => {
     <>
       <div>
         <p className={s.text}>
-          Name: {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
+          Name: {user.name.charAt(0).toUpperCase()}
         </p>
         <p className={s.text}>Phone: {user.number}</p>
       </div>
       <button
         className={s.contactBtn}
         type='button'
-        onClick={handleDeleteContactUser}
+        onClick={handleDelete}
       >
         Delete
       </button>
