@@ -15,9 +15,9 @@ const ContactList = () => {
   return (
     <div>
       {loader && <Loader />}
-      <ul className={s.contactList}>
+      <ul className={s.ilst}>
         {searchUsers.map((user) => (
-          <li className={s.contactItem} key={user.id}>
+          <li className={s.item} key={user.id}>
             <Contact user={user} />
           </li>
         ))}

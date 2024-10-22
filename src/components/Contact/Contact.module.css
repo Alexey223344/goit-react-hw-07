@@ -1,8 +1,8 @@
-.contactText {
+.text {
     font-weight: bold;
   }
   
-  .contactText:nth-child(1) {
+  .textext:nth-child(1) {
     margin-bottom: 10px;
   }
   
