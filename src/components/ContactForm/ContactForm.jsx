@@ -9,17 +9,17 @@ const ContactForm = () => {
 
   const orderSchema = Yup.object({
     name: Yup.string()
-      .min(3, 'Minimum 3 characters')
-      .max(50, 'Maximum 50 characters')
+      .min(3, 'minimum of 3 letters')
+      .max(50, 'max 50 letters')
       .required('Must be filled'),
     number: Yup.string()
       .matches(/^\+?[1-9]\d{1,14}$/, 'Invalid phone number')
-      .min(3, 'Minimum 3 digits')
-      .max(50, 'Maximum 50 digits')
+      .min(3, 'min 3 number')
+      .max(50, 'max 50 number')
       .required('Must be filled'),
   });
 
-  const handleForm = (values, options) => {
+  const handleFormAdd = (values, options) => {
     dispatch(
       addContact({
         name: values.name.trim().toLowerCase(),
@@ -33,7 +33,7 @@ const ContactForm = () => {
     <div>
       <Formik
         initialValues={{ name: '', number: '' }}
-        onSubmit={handleForm}
+        onSubmit={handleFormAdd}
         validationSchema={orderSchema}
       >
         <Form className={s.contactForm}>

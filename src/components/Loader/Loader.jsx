@@ -1,19 +1,25 @@
-import { MutatingDots } from 'react-loader-spinner';
-import s from './Loader.module.css';
+import { DNA } from "react-loader-spinner";
+import s from "./Loader.module.css";
+import { useEffect, useState } from "react";
 
 const Loader = () => {
+  const [visible, setVisible]=useState(true)
+  useEffect(()=>{
+    const timer=setTimeout(()=>{
+      setVisible(false)
+    }, 3000)
+    return()=>clearTimeout(timer)
+  }, [])
   return (
     <div className={s.loaderWraper}>
-      <MutatingDots
-        visible={true}
-        height='100'
-        width='100'
-        color='#4fa94d'
-        secondaryColor='#4fa94d'
-        radius='12.5'
-        ariaLabel='mutating-dots-loading'
+      <DNA
+        visible={visible}
+        height="80"
+        width="80"
+        ariaLabel="dna-loading"
         wrapperStyle={{}}
-        wrapperClass=''
+        wrapperClass="dna-wrapper"
+        
       />
     </div>
   );

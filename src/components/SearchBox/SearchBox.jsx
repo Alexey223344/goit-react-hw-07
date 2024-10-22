@@ -5,7 +5,7 @@ import { changeFilter } from '../../redux/filtersSlice';
 const SearchBox = () => {
   const dispatch = useDispatch();
 
-  const handleSearchUser = event => {
+  const handleUserSearch = event => {
     const form = event.target;
 
     dispatch(changeFilter(form.value.toLowerCase()));
@@ -17,7 +17,7 @@ const SearchBox = () => {
         <input
           className={s.serchInput}
           type='text'
-          onChange={handleSearchUser}
+          onChange={handleUserSearch}
         />
       </label>
     </div>

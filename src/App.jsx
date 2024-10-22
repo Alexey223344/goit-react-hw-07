@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <h1 className='pageTitle'>Phonebook</h1>
+      <h1 className='title'>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />

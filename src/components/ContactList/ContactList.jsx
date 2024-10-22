@@ -1,21 +1,22 @@
-import s from './ContactList.module.css';
-import Contact from '../Contact/Contact';
-import { useSelector } from 'react-redux';
+import s from "./ContactList.module.css";
+import Contact from "../Contact/Contact";
+import { useSelector } from "react-redux";
 import {
   selectFilteredContacts,
-  selectIsLoading,
-} from '../../redux/contactsSlice';
-import Loader from '../Loader/Loader';
+  selectWaitLoadingUser,
+} from "../../redux/contactsSlice";
+
+import Loader from "../Loader/Loader";
 
 const ContactList = () => {
   const searchUsers = useSelector(selectFilteredContacts);
-  const loader = useSelector(selectIsLoading);
+  const loader = useSelector(selectWaitLoadingUser);
 
   return (
     <div>
       {loader && <Loader />}
       <ul className={s.contactList}>
-        {searchUsers.map(user => (
+        {searchUsers.map((user) => (
           <li className={s.contactItem} key={user.id}>
             <Contact user={user} />
           </li>

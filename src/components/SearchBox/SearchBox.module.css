@@ -4,8 +4,13 @@
     margin: 0 auto;
     width: 400px;
     border-radius: 10px;
-    box-shadow: 4px 4px 4px lightblue;
-    background-color: aliceblue;
+
+    background: linear-gradient(
+      72deg,
+      rgba(25, 75, 247, 1) 0%,
+      rgba(247, 48, 199, 1) 70%,
+      rgba(238, 70, 70, 1) 100%
+    );
     margin-bottom: 24px;
   }
   
@@ -14,6 +19,8 @@
     flex-direction: column;
     font-weight: bold;
     gap: 8px;
+    color: aliceblue;
+    font-size: 25px;
   }
   
   .serchInput {
